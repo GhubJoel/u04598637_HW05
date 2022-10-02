@@ -12,7 +12,13 @@ namespace u04598637_HW05.Controllers
         private DataService dataService = new DataService();
         public ActionResult Index()
         {
-            return View();
+            StudBookVM studBook;
+
+            studBook = new StudBookVM
+            {
+                BooksList = dataService.getAllBooks()
+            };
+            return View(studBook);
         }
     }
 }

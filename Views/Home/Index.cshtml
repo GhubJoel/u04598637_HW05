@@ -54,16 +54,26 @@
                 <th scope="col">Type</th>
                 <th scope="col">Page Count</th>
                 <th scope="col">Points</th>
+                <th scope="col">Status</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
-           @foreach (var bookrec in Model.)
+           @foreach (var bookrec in Model.BooksList)
             {
                 <tr>
-
+                    <td>@bookrec.bookId</td>
+                    <td>@bookrec.name</td>
+                    <td>@bookrec.aname</td>
+                    <td>@bookrec.tname</td>
+                    <td>@bookrec.pagecount</td>
+                    <td>@bookrec.point</td>
+                    <td></td>
+                    <td></td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
 </div>
+

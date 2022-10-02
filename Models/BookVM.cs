@@ -7,11 +7,13 @@ namespace u04598637_HW05.Models
 {
     public class BookVM
     {
-        public int bookID { get; set; }
-        public string bookName { get; set; }
-        public string authorName { get; set; }
-        public string booktype { get; set; }
-        public int bookPC { get; set; }
-        public int bookPoint { get; set; }
+        public int bookId { get; set; }
+        public string name { get; set; }
+        public string aname { get; set; }
+        public string tname { get; set; }
+        public int pagecount { get; set; }
+        public int point { get; set; }
+
+       
     }
 }
