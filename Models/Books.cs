@@ -5,7 +5,7 @@ using System.Web;
 
 namespace u04598637_HW05.Models
 {
-    public class BooksVM
+    public class Books
     {
         public int BookID { get; set; }
         public string BookName { get; set; }

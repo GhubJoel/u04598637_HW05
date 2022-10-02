@@ -16,27 +16,33 @@ namespace u04598637_HW05.Models
             ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         }
 
-        public List<BooksVM> getAllBooks()
+        public List<BookVM> getAllBooks()
         {
-            List<BooksVM> books = new List<BooksVM>();
+            List<BookVM> books = new List<BookVM>();
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
                 con.Open();
-                using(SqlCommand cmd = new SqlCommand("Select * From books", con))
+                using(SqlCommand cmd = new SqlCommand("SELECT bookid , books.name , authors.surname , types.name , pagecount , point AS FROM books INNER JOIN authors on books.authorId = authors.authorId INNER JOIN types ON books.typeId = types.typeId", con))
                 {
                     using(SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while(reader.Read())
                         {
-                            BooksVM bvm = new BooksVM
+                            BookVM bvm = new BookVM
                             {
-                                BookID = Convert.ToInt32(reader["bookid"]),
-                                BookName = Convert.ToString(reader["name"])
-                               
-                            }
+                                bookID = Convert.ToInt32(reader["bookid"]),
+                                bookName = Convert.ToString(reader["books.name"]),
+                                authorName = Convert.ToString(reader["authors.surname"]),
+                                booktype = Convert.ToString(reader["types.name"]),
+                                bookPC = Convert.ToInt32(reader["pagecount"]),
+                                bookPoint = Convert.ToInt32(reader["point"])
+                            };
+                            books.Add(bvm);
                         }
                     }
+                    con.Close();
                 }
+                return books;
             }
         }
     }

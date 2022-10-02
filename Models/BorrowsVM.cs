@@ -9,7 +9,7 @@ namespace u04598637_HW05.Models
     {
         public int BorrowID { get; set; }
         public Students Studentid { get; set; }
-        public BooksVM Bookid { get; set; }
+        public Books Bookid { get; set; }
         public DateTime TakenDate { get; set; }
         public DateTime BroughtDate { get; set; }
     }

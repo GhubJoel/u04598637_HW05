@@ -125,7 +125,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Authors.cs" />
-    <Compile Include="Models\BooksVM.cs" />
+    <Compile Include="Models\Books.cs" />
+    <Compile Include="Models\BookVM.cs" />
     <Compile Include="Models\BorrowsVM.cs" />
     <Compile Include="Models\DataService.cs" />
     <Compile Include="Models\StudBookVM.cs" />
