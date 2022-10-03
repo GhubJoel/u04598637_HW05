@@ -22,7 +22,7 @@ namespace u04598637_HW05.Models
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
                 con.Open();
-                using(SqlCommand cmd = new SqlCommand("SELECT books.bookId , books.name, authors.surname , types.name , books.pagecount , books.point FROM books INNER JOIN authors on books.authorId = authors.authorId INNER JOIN types ON books.typeId = types.typeId", con))
+                using(SqlCommand cmd = new SqlCommand("SELECT books.bookId AS bookId , books.name AS name, authors.surname AS aname , types.name AS tname, books.pagecount AS pagecount, books.point AS point FROM books INNER JOIN authors on books.authorId = authors.authorId INNER JOIN types ON books.typeId = types.typeId", con))
                 {
                     using(SqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -30,12 +30,12 @@ namespace u04598637_HW05.Models
                         {
                             BookVM bvm = new BookVM
                             {
-                                bookId = Convert.ToInt32(reader["books.bookId"]),
-                                name = Convert.ToString(reader["books.name"]),
-                                aname = Convert.ToString(reader["authors.surname"]),
-                                tname = Convert.ToString(reader["types.name"]),
-                                pagecount = Convert.ToInt32(reader["books.pagecount"]),
-                                point = Convert.ToInt32(reader["books.point"])
+                                bookId = Convert.ToInt32(reader["bookId"]),
+                                name = Convert.ToString(reader["name"]),
+                                aname = Convert.ToString(reader["aname"]),
+                                tname = Convert.ToString(reader["tname"]),
+                                pagecount = Convert.ToInt32(reader["pagecount"]),
+                                point = Convert.ToInt32(reader["point"])
                             };
                             books.Add(bvm);
                         }
