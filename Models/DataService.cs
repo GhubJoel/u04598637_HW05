@@ -45,5 +45,35 @@ namespace u04598637_HW05.Models
                 return books;
             }
         }
+
+        public List<Borrowdisplay> getBorrowList(int id)
+        {
+            List<Borrowdisplay> borrows = new List<Borrowdisplay>();
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("SELECT borrows.borrowId AS borrowId , borrows.takenDate AS takenDate , borrows.broughtDate AS broughtDate , students.name + ' ' +  students.surname AS borrowBy FROM borrows INNER JOIN students on borrows.studentId = students.studentId WHERE borrows.bookId = " + id + " ORDER BY borrows.takenDate DESC", con))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Borrowdisplay brvm = new Borrowdisplay
+                            {
+                                borrowId = Convert.ToInt32(reader["borrowId"]),
+                                takenDate = Convert.ToDateTime(reader["takenDate"]),
+                                broughtDate = Convert.ToDateTime(reader["broughtDate"]),
+                                borrowBy = Convert.ToString(reader["borrowBy"]),
+                 
+                            };
+                            borrows.Add(brvm);
+                        }
+                    }
+                    con.Close();
+                }
+                return borrows;
+            }
+        }
+
     }
 }

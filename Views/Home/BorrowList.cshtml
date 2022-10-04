@@ -1,0 +1,30 @@
+﻿@model u04598637_HW05.Models.StudBookVM
+@{
+    ViewBag.Title = "BorrowList";
+}
+
+<h2>BorrowList</h2>
+
+<div class="col-md-12">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Taken Date</th>
+                <th scope="col">Brought Date</th>
+                <th scope="col">Borrow By</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var bookdisp in Model.BorrowList)
+            {
+                <tr>
+                    <td>@bookdisp.borrowId</td>
+                    <td>@bookdisp.takenDate</td>
+                    <td>@bookdisp.broughtDate</td>
+                    <td>@bookdisp.borrowBy</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

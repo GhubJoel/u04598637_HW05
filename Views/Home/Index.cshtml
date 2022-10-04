@@ -68,12 +68,11 @@
                     <td>@bookrec.tname</td>
                     <td>@bookrec.pagecount</td>
                     <td>@bookrec.point</td>
-                    <td></td>
+                    <td>@Html.ActionLink("View", "BorrowList", new { @class = "btn btn-primary", id = bookrec.bookId })</td>
                     <td></td>
                 </tr>
             }
         </tbody>
     </table>
-</div>
 </div>
 
