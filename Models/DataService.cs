@@ -52,7 +52,7 @@ namespace u04598637_HW05.Models
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT borrows.borrowId AS borrowId , borrows.takenDate AS takenDate , borrows.broughtDate AS broughtDate , students.name + ' ' +  students.surname AS borrowBy FROM borrows INNER JOIN students on borrows.studentId = students.studentId WHERE borrows.bookId = " + id + " ORDER BY borrows.takenDate DESC", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT borrows.borrowId AS borrowId ,borrows.takenDate AS takenDate , borrows.broughtDate AS broughtDate , students.name + ' ' +  students.surname AS borrowBy FROM borrows INNER JOIN students on borrows.studentId = students.studentId WHERE borrows.bookId = " + id + " ORDER BY borrows.takenDate DESC", con))
                 {
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
