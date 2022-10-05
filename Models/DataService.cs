@@ -75,5 +75,34 @@ namespace u04598637_HW05.Models
             }
         }
 
+        public List<StudentVM> getStudents()
+        {
+            List<StudentVM> students = new List<StudentVM>();
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("SELECT students.studentId AS studentId , students.name AS name, students.surname AS surname, students.class AS studclass, students.point AS point FROM students", con))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            StudentVM stud = new StudentVM
+                            {
+                              studentId = Convert.ToInt32(reader["studentId"]),
+                              name = Convert.ToString(reader["name"]),
+                              surname = Convert.ToString(reader["surname"]),
+                              studclass = Convert.ToString(reader["studclass"]),
+                              point = Convert.ToInt32(reader["point"]),
+                            };
+                            students.Add(stud);
+                        }
+                    }
+                    con.Close();
+                }
+                return students;
+            }
+        }
+
     }
 }

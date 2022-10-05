@@ -56,6 +56,8 @@
                 <th scope="col">Points</th>
                 <th scope="col">Status</th>
                 <th scope="col"></th>
+                <th scope="col"></th>
+
             </tr>
         </thead>
         <tbody>
@@ -68,8 +70,8 @@
                     <td>@bookrec.tname</td>
                     <td>@bookrec.pagecount</td>
                     <td>@bookrec.point</td>
-                    <td>@Html.ActionLink("View", "BorrowList", new { @class = "btn btn-primary", id = bookrec.bookId })</td>
                     <td></td>
+                    <td>@Html.ActionLink("View", "BorrowList", new { @class = "btn btn-primary", id = bookrec.bookId })</td>
                 </tr>
             }
         </tbody>

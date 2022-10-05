@@ -31,5 +31,16 @@ namespace u04598637_HW05.Controllers
             };
             return View(studBorrow);
         }
+
+        public ActionResult StudentList()
+        {
+            StudBookVM stud;
+
+            stud = new StudBookVM
+            {
+                StudentList = dataService.getStudents()
+            };
+            return View(stud);
+        }
     }
 }

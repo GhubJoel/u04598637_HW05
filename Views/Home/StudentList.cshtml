@@ -1,0 +1,63 @@
+﻿@model u04598637_HW05.Models.StudBookVM
+@{
+    ViewBag.Title = "StudentList";
+}
+
+<h2>Students</h2>
+<div class="row">
+    <br>
+    <div class="col-lg-2 col-md-6">
+        <div class="form-outline">
+            <input type="search" id="form1" class="form-control" placeholder="Search Student Name" aria-label="Search" />
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-6">
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Select a class
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-6">
+        <div class="dropdown">
+            <button class="btn btn-success">Search</button>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-6">
+        <div class="dropdown">
+            <button class="btn btn-danger">Clear</button>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Surname</th>
+                <th scope="col">Class</th>
+                <th scope="col">Point</th>
+                <th scope="col">Borrow Book</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var stud in Model.StudentList)
+            {
+                <tr>
+                    <td>@stud.studentId</td>
+                    <td>@stud.name</td>
+                    <td>@stud.surname</td>
+                    <td>@stud.studclass</td>
+                    <td>@stud.point</td>
+                    <td>@Html.ActionLink("Borrow Book", "BorrowList", new { @class = "btn btn-primary"})</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -132,6 +132,7 @@
     <Compile Include="Models\DataService.cs" />
     <Compile Include="Models\StudBookVM.cs" />
     <Compile Include="Models\Students.cs" />
+    <Compile Include="Models\StudentVM.cs" />
     <Compile Include="Models\Types.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -170,6 +171,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\BorrowList.cshtml" />
+    <Content Include="Views\Home\StudentList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

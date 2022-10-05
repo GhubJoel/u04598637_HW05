@@ -10,5 +10,6 @@ namespace u04598637_HW05.Models
         public List<Students> StudentsList { get; set; }
         public List<BookVM> BooksList { get; set; }
         public List<Borrowdisplay> BorrowList { get; set; }
+        public List<StudentVM> StudentList { get; set; }
     }
 }
